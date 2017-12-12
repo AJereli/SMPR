@@ -53,8 +53,8 @@ kwNN - метод взвешенных ближайших соседей, в о�
 
 Покажем как персепртрон находит разделяющую гиперплоскость на разных итерациях
 
-![](https://github.com/AJereli/SMPR/blob/master/pers_stops.png)
+![](https://github.com/AJereli/SMPR/blob/master/steps.png)
 
 Оптимально разделяющая гиперплоскость 
 
-![](https://github.com/AJereli/SMPR/blob/master/pers_full.png)
+![](https://github.com/AJereli/SMPR/blob/master/full.png)

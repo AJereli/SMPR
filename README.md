@@ -165,3 +165,20 @@ Number of Support Vectors : 841
 Objective Function Value : -467.9232 
 
 Training error : 0.045217 
+
+
+# Байесовские алгоритмы
+
+## Наивный нормальный байесовский классификатор
+
+Все объекты описываются _n_ числовыми признаками, ![](http://latex.codecogs.com/svg.latex?x%20%3D%20%28%5Cxi_1%2C...%2C%5Cxi_n%29). Сама наивность классификатора состоит в предположении, что все признаки ![](http://latex.codecogs.com/svg.latex?f_1%2C...%2Cf_n) - независимые случайные величины, и тогда функции правдоподобия классов (совместные плотности) : ![](http://latex.codecogs.com/svg.latex?p_y%28x%29%20%3D%20p_%7By1%7D%28%5Cxi_1%29...p_%7Byn%7D%28%5Cxi_n%29%2C%20y%20%5Cin%20Y), где ![](http://latex.codecogs.com/svg.latex?p_%7Byj%7D%28%5Cxi_j%29) - плотность распределений значений _j_-го признака для класса _y_.  
+
+Оценка **n** одномерных плотностей проще, чем одной n-мерной. Подставляя оценки ![](http://latex.codecogs.com/svg.latex?p_%7Byj%7D%28%5Cxi_j%29) в _ОБРП_, получим байесовский классификатор:  
+
+![](http://latex.codecogs.com/svg.latex?a%28x%29%20%3D%20%5Carg%5Cmax%5CBigr%28%5Cln%5Clambda_y%5Cwidehat%7BP%7D_y%20&plus;%20%5Csum_%7Bi%3D1%7D%5En%5Cln%5Cwidehat%7Bp%7D_%7Byj%7D%28%5Cxi_j%29%5CBigr%29)
+
+В случае, если классы равнозначны ![](http://latex.codecogs.com/svg.latex?%5Clambda_y%5Cequiv%201), байесовское правило - ***принцип максимума апостериорной вероятности***. Если они ещё и равновероятны ![](http://latex.codecogs.com/svg.latex?P_y%20%5Cequiv%20%5Cfrac%7B1%7D%7B%7CY%7C%7D) (это и предыдущее условие выполняется для выборки ирисов Фишера), то объект относится к классу с наибольшим значением совместной плотности ![](http://latex.codecogs.com/svg.latex?p_y%28x%29) в точке.  
+
+Всё, что требуется сделать - посчитать плотности на каждом признаке элемента, перемножить их, повторить для всех классов и найти максимальную. Плотность у нас нормальная (гауссовская):
+![](http://latex.codecogs.com/svg.latex?p_%7Byj%7D%28%5Cxi%29%20%3D%20%5Cfrac%7B1%7D%7B%5Csigma_%7Byj%7D%5Csqrt%7B2%5Cpi%7D%7D%5Cexp%5CBigr%28-%5Cfrac%7B%28%5Cxi-%5Cmu_%7Byj%7D%29%5E2%7D%7B2%5Csigma%5E2_%7Byj%7D%20%7D%5CBigr%29), где ![](http://latex.codecogs.com/svg.latex?%5Cmu_%7Byj%7D) - матожидание j-го признака класса y, ![](http://latex.codecogs.com/svg.latex?%5Csigma%5E2_%7Byj%7D) - дисперсия j-го признака класса y.
+

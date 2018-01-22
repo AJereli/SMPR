@@ -118,3 +118,13 @@ h - ширина потенциала, опять же, аналог с PW;
 Это правило предложено Видроу и Хоффом и называется дельта-правилом
 
 ![](https://github.com/AJereli/SMPR/blob/master/imgs/adaline.png)
+
+## Логистическая регрессия
+Это линейный алгоритм классификации, также являющийся оптимальным байесовским. Как и предыдущие, использует **SG** и также основан на довольно сильных вероятностных предположениях. Функция потерь - логистическая:
+![](http://latex.codecogs.com/svg.latex?%5Cmathcal%7BL%7D%28M%29%20%3D%20%5Clog_2%281%20&plus;%20e%5E%7B-M%7D%29).
+
+Правило обновления весов тоже другое, *логистическое*:
+![](http://latex.codecogs.com/svg.latex?w%20%3A%3D%20w&plus;%5Ceta%20y_ix_i%5Csigma%28-%5Clangle%20w%2Cx_i%20%5Crangle%20y_i%29)
+, а ![](http://latex.codecogs.com/svg.latex?%5Csigma%28-M_i%29%20%3D%20%5Cfrac%7B1%7D%7B1%20&plus;%20e%5E%7BM_i%7D%7D) - сигмоидная функция.
+
+![](https://github.com/AJereli/SMPR/blob/master/imgs/logreg.png)

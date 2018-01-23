@@ -182,3 +182,4 @@ Training error : 0.045217
 Всё, что требуется сделать - посчитать плотности на каждом признаке элемента, перемножить их, повторить для всех классов и найти максимальную. Плотность у нас нормальная (гауссовская):
 ![](http://latex.codecogs.com/svg.latex?p_%7Byj%7D%28%5Cxi%29%20%3D%20%5Cfrac%7B1%7D%7B%5Csigma_%7Byj%7D%5Csqrt%7B2%5Cpi%7D%7D%5Cexp%5CBigr%28-%5Cfrac%7B%28%5Cxi-%5Cmu_%7Byj%7D%29%5E2%7D%7B2%5Csigma%5E2_%7Byj%7D%20%7D%5CBigr%29), где ![](http://latex.codecogs.com/svg.latex?%5Cmu_%7Byj%7D) - матожидание j-го признака класса y, ![](http://latex.codecogs.com/svg.latex?%5Csigma%5E2_%7Byj%7D) - дисперсия j-го признака класса y.
 
+![](https://github.com/AJereli/SMPR/blob/master/imgs/bayes.png)

@@ -183,3 +183,29 @@ Training error : 0.045217
 ![](http://latex.codecogs.com/svg.latex?p_%7Byj%7D%28%5Cxi%29%20%3D%20%5Cfrac%7B1%7D%7B%5Csigma_%7Byj%7D%5Csqrt%7B2%5Cpi%7D%7D%5Cexp%5CBigr%28-%5Cfrac%7B%28%5Cxi-%5Cmu_%7Byj%7D%29%5E2%7D%7B2%5Csigma%5E2_%7Byj%7D%20%7D%5CBigr%29), где ![](http://latex.codecogs.com/svg.latex?%5Cmu_%7Byj%7D) - матожидание j-го признака класса y, ![](http://latex.codecogs.com/svg.latex?%5Csigma%5E2_%7Byj%7D) - дисперсия j-го признака класса y.
 
 ![](https://github.com/AJereli/SMPR/blob/master/imgs/bayes.png)
+
+### Линейный дискриминант Фишера 
+Допустим равеноство ковариацонных матриц классов ![equation](http://latex.codecogs.com/gif.latex?\sum). 
+
+Оценим ![equation](http://latex.codecogs.com/gif.latex?\sum^{-}) по всем l объектам обучающей выборке. С учетом поправки на смещённость,
+
+![equation](http://latex.codecogs.com/gif.latex?\sum^{-}&space;=&space;\frac{1}{l-|Y|}\sum_{i=1}^l&space;(x_i&space;-&space;\mu^{-}_{y_i})(x_i&space;-&space;\mu^{-}_{y_i})^T)
+
+Тогда разделяющая поверхность линейна. Подстановочный алгоритм имеет вид:
+
+![equation](http://latex.codecogs.com/gif.latex?a(x)=argmax_{y\epsilon&space;Y}\lambda_y&space;P_y&space;\rho_y&space;(x)&space;=&space;argmax_{y\epsilon&space;Y}&space;(\ln&space;(\lambda_y&space;P_y)&space;-&space;\frac{1}{2}&space;\mu_y^{T}&space;\sum^{-1}&space;\mu_y&space;&plus;&space;x^{T}&space;\sum^{-1}&space;\mu_y))
+
+Полученный алгоритм называется линейным дискриминантом Фишера. ЛДФ показывается хорошие результаты если формы классов близки к нормальных и схожи. В этом случае линейное решающее правило близко к оптимальному байесовскому, но существенно более устойчиво, чем квадратичное, и часто обладает лучшей обобщающей способностью.
+
+Вероятность ошибки линейного дискриминанта Фишера выражается через расстояние Махаланобиса между классами, в случае, когда классов два:
+![equation](http://latex.codecogs.com/gif.latex?R(a)&space;=&space;\Phi&space;(-\frac{1}{2}||\mu_1&space;-&space;\mu_2||_{\sum}))
+где ![equation](http://latex.codecogs.com/gif.latex?\Phi&space;(x)&space;=&space;N(x;0,1)) - функция стандартного нормального распределения.
+
+Для теста использовался датасет spam 
+На первом графике использовались признаки charDollar и metting
+
+На втором графике признаки charDollar и capitalLong
+
+![](https://github.com/AJereli/SMPR/blob/master/imgs/ldf.png)
+
+![](https://github.com/AJereli/SMPR/blob/master/imgs/longLdf.png)
